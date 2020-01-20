@@ -1,0 +1,17 @@
+os: linux
+dist: bionic
+language: bash
+script: make test
+stages:
+  - test
+jobs:
+  include:
+    - stage: test
+      name: 'Ubuntu 18.04 LTS (Bionic Beaver)  [GOAL: install, test]'
+      script:
+         - travis_retry sudo docker run --rm=true -v `pwd`:/shadowsox-patch:rw ubuntu:18.04 /bin/bash -c "apt-get update ; apt-get install -yq make python3 python3-pip; cd /shadowsox-patch/; make install ; make test"
+    - stage: test
+      name: 'Ubuntu 19.04 (Disco Dingo) [GOAL: install, test] '
+      script:
+         - travis_retry sudo docker run --rm=true -v `pwd`:/shadowsox-patch:rw ubuntu:19.04 /bin/bash -c "apt-get update ; apt-get install -yq make python3 python3-pip; cd /shadowsox-patch/; make install ; make test"
+

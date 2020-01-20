@@ -6,8 +6,17 @@ install:
 	@echo "Installing shadowsocks package ..."
 	@pip3 install shadowsocks || pip install shadowsocks
 	make patch
+	make test
 
 patch:
 	@echo "Patching shadowsocks package ..."
 	patch /usr/local/lib/$(PYTHON_DIRNAME)/dist-packages/shadowsocks/crypto/openssl.py ssl-symbol.patch
 	@echo "DONE"
+
+test:
+	@echo "Testing shadowsocks for errors ..."
+	ssserver -p 21344 -k password -m aes-256-cfb -d start
+	@echo " [ pause 3 sec ]" ; sleep 3
+	ssserver -p 21344 -k password -m aes-256-cfb -d stop
+	@echo "Test success"
+
