@@ -1,3 +1,5 @@
+![Master Build Status](https://img.shields.io/travis/velescore/shadowsox-patch/master?style=for-the-badge) ![Licence](https://img.shields.io/github/license/velescore/shadowsox-patch?color=blue&style=for-the-badge)
+
 # Shadowsox Patch
 ## Fixes errors on Ubuntu 18.x - 19.x
 When installing *ss* from `pip` repository on current Ubuntu GNU/Linux (18.x - 19.x), an error with OpenSSL symbol occurs:
