@@ -2,13 +2,17 @@
 
 # Shadowsox Patch
 ## Fixes errors on Ubuntu 18.x - 19.x
-When installing *ss* from `pip` repository on current Ubuntu GNU/Linux (18.x - 19.x), an error with OpenSSL symbol occurs:
+When installing popular Socks5 implementation from `pip` repository on current Ubuntu GNU/Linux (18.x - 19.x), an error with OpenSSL symbol occurs:
 ```AttributeError: /usr/lib/x86_64-linux-gnu/libcrypto.so.1.1: undefined symbol: EVP_CIPHER_CTX_cleanup```
+This patch fixes the error in the official Python package, automatically using makefile.
 
 ## Installation
-1) Clone this repository and enter it's directory using 
-`git clone https://github.com/AltcoinBaggins/shadowsox-patch ; cd shadowsox-patch`
-2) Run `make install`
+1) Clone this repository, enter inside and run make using following commands: 
+```
+git clone https://github.com/velescore/shadowsox-patch
+cd shadowsox-patch
+make
+```
 
 ## Manual installation
 1) Clone the repository and enter inside the directory (step 1. above)
